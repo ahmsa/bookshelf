@@ -14,6 +14,6 @@ public class BookService {
     }
 
     public List<Book> getByTitle(String title) {
-        bookRepository.findByTitle(title);
+        return bookRepository.findByTitle(title);
     }
 }

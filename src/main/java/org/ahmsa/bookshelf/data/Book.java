@@ -1,6 +1,7 @@
 package org.ahmsa.bookshelf.data;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Book {
     @Id
-    private Long id;
+    @GeneratedValue(generator = "uuid")
+    private String id;
     private String title;
     private Integer publicationYear;
     private Double edition;

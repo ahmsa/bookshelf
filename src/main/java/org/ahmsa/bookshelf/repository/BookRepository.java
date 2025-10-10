@@ -10,6 +10,6 @@ import java.util.Optional;
 @ApplicationScoped
 public class BookRepository extends BaseRepository implements PanacheRepository<Book> {
     public List<Book> findByTitle(String title) {
-        return find("title", title) == null ? Optional.empty() : list("title", title);
+        return find("title", title).list();
     }
 }
