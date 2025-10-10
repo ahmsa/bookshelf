@@ -23,4 +23,5 @@ TestResults.xml
 
 /.idea
 
-/target
+/target/*
+/target/
