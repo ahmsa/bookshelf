@@ -1,6 +1,0 @@
-org\ahmsa\bookshelf\data\Genre.class
-org\ahmsa\bookshelf\data\Book.class
-org\ahmsa\bookshelf\data\Commentator.class
-org\ahmsa\bookshelf\data\Author.class
-org\acme\GreetingResource.class
-org\ahmsa\bookshelf\repository\BaseRepository.class
