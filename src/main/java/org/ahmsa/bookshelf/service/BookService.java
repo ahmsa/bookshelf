@@ -7,11 +7,8 @@ import org.ahmsa.bookshelf.repository.BookRepository;
 import java.util.List;
 
 public class BookService {
-    private final BookRepository bookRepository;
-
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
+    @Inject
+    private BookRepository bookRepository;
 
     public List<Book> getByTitle(String title) {
         return bookRepository.findByTitle(title);
