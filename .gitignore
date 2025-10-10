@@ -25,3 +25,5 @@ TestResults.xml
 
 /target/*
 /target/
+target/*
+target/
