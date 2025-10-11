@@ -30,12 +30,12 @@ class BookRepositoryTest {
     @Transactional
     void findByTitle() {
         Book book = new Book();
-        book.setTitle("Book 1");
+        book.setTitle("Alex Rider");
 
         bookRepository.persist(book);
-        List<Book> byTitle = bookRepository.findByTitle("Book 1");
+        List<Book> byTitle = bookRepository.findByTitle("Alex Rider");
         assertNotNull(byTitle);
         assertEquals(1, byTitle.size());
-        assertEquals("Book 1", byTitle.get(0).getTitle());
+        assertEquals("Alex Rider", byTitle.get(0).getTitle());
     }
 }
