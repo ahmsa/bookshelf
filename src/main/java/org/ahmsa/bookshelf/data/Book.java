@@ -1,8 +1,6 @@
 package org.ahmsa.bookshelf.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +19,13 @@ public class Book {
     private Integer publicationYear;
     private Double edition;
     private Double price;
-//    private List<Genre> genres;
-//    private List<Author> authors;
+    private String Language;
+    private String publisher;
+    private String isbn;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Genre> genres;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Author> authors;
 }

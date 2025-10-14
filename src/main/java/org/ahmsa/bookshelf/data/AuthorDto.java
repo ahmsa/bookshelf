@@ -7,18 +7,17 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Author {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+public class AuthorDto {
     private String id;
-
     private String name;
     private String nationality;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Book> books;
+    public AuthorDto(Author author) {
+        this.id = author.getId();
+        this.name = author.getName();
+        this.nationality = author.getNationality();
+    }
 }

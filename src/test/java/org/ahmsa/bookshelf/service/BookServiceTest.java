@@ -1,6 +1,7 @@
 package org.ahmsa.bookshelf.service;
 
 import org.ahmsa.bookshelf.data.Book;
+import org.ahmsa.bookshelf.data.BookDto;
 import org.ahmsa.bookshelf.repository.BookRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,9 +38,9 @@ class BookServiceTest {
 
         when(bookRepositoryMock.findByTitle(any(String.class))).thenReturn(List.of(book));
 
-        List<Book> byTitle = bookService.getByTitle("Book 1");
+        List<BookDto> byTitle = bookService.getByTitle("Book 1");
         assertNotNull(byTitle);
         assertEquals(1, byTitle.size());
-        assertEquals("Book 1", byTitle.get(0).getTitle());
+        assertEquals("Book 1", byTitle.getFirst().getTitle());
     }
 }
