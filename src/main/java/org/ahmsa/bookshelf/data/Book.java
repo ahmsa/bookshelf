@@ -19,7 +19,7 @@ public class Book {
     private Integer publicationYear;
     private Double edition;
     private Double price;
-    private String Language;
+    private String bookLanguage;
     private String publisher;
     private String isbn;
 
