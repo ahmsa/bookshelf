@@ -1,7 +1,7 @@
 package org.ahmsa.bookshelf.service;
 
 import org.ahmsa.bookshelf.data.Book;
-import org.ahmsa.bookshelf.data.BookDto;
+import org.ahmsa.bookshelf.data.BookBaseDto;
 import org.ahmsa.bookshelf.repository.BookRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 
 class BookServiceTest {
 
@@ -38,7 +37,7 @@ class BookServiceTest {
 
         when(bookRepositoryMock.findByTitle(any(String.class))).thenReturn(List.of(book));
 
-        List<BookDto> byTitle = bookService.getByTitle("Book 1");
+        List<BookBaseDto> byTitle = bookService.getByTitle("Book 1");
         assertNotNull(byTitle);
         assertEquals(1, byTitle.size());
         assertEquals("Book 1", byTitle.getFirst().getTitle());

@@ -3,9 +3,9 @@ package org.ahmsa.bookshelf.service;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.ahmsa.bookshelf.data.Book;
+import org.ahmsa.bookshelf.data.BookBaseDto;
 import org.ahmsa.bookshelf.data.BookDto;
 import org.ahmsa.bookshelf.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

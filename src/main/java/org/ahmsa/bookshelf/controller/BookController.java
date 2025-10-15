@@ -4,6 +4,7 @@ package org.ahmsa.bookshelf.controller;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import org.ahmsa.bookshelf.data.BookBaseDto;
 import org.ahmsa.bookshelf.data.BookDto;
 import org.ahmsa.bookshelf.service.BookService;
 
