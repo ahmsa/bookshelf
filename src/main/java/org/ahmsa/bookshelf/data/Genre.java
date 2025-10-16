@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Genre {
+public class Genre implements IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

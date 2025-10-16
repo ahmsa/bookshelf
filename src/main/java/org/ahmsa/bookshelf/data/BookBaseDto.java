@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class BookBaseDto implements IDto {
+public class BookBaseDto implements IDto<Book> {
     private String id;
     private String title;
     private Integer publicationYear;
@@ -29,9 +29,33 @@ public class BookBaseDto implements IDto {
     }
 
     @Override
+    public void populateFromEntity(Book book) {
+        this.id = book.getId();
+        this.title = book.getTitle();
+        this.publicationYear = book.getPublicationYear();
+        this.edition = book.getEdition();
+        this.price = book.getPrice();
+        this.bookLanguage = book.getBookLanguage();
+        this.publisher = book.getPublisher();
+        this.isbn = book.getIsbn();
+    }
+
+    @Override
     public Book getEntity() {
         Book book = new Book();
         book.setId(this.id);
+        book.setTitle(this.title);
+        book.setPublicationYear(this.publicationYear);
+        book.setEdition(this.edition);
+        book.setPrice(this.price);
+        book.setBookLanguage(this.bookLanguage);
+        book.setPublisher(this.publisher);
+        book.setIsbn(this.isbn);
+        return book;
+    }
+
+    @Override
+    public Book updateEntity(Book book) {
         book.setTitle(this.title);
         book.setPublicationYear(this.publicationYear);
         book.setEdition(this.edition);

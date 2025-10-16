@@ -3,27 +3,28 @@ package org.ahmsa.bookshelf.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import org.ahmsa.bookshelf.data.Genre;
 import org.ahmsa.bookshelf.data.GenreDto;
 import org.ahmsa.bookshelf.repository.GenreRepository;
+import org.springframework.data.repository.CrudRepository;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
-public class GenreService {
+public class GenreService implements IService<Genre, GenreDto> {
     @Inject
     GenreRepository genreRepository;
 
-    public List<GenreDto> getAllGenres() {
-        List<Genre> allGenres = genreRepository.findAll();
-        if(allGenres == null || allGenres.isEmpty()){
-            return List.of();
-        }
-        return allGenres.stream().map(GenreDto::new).toList();
+    @Override
+    public GenreRepository getCrudRepository() {
+        return this.genreRepository;
     }
 
-    public GenreDto saveGenre(GenreDto genre) {
-        Genre savedGenre = genreRepository.save(genre.getEntity());
-        return new GenreDto(savedGenre);
+    @Override
+    public GenreDto getDtoInstance() {
+        return new  GenreDto();
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Book {
+public class Book implements IEntity {
     @Id
     @GeneratedValue(generator = "uuid")
     private String id;

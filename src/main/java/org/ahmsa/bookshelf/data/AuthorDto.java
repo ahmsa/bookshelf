@@ -9,11 +9,19 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AuthorDto extends AuthorBaseDto implements  IDto {
+public class AuthorDto extends AuthorBaseDto implements  IDto<Author> {
     List<BookBaseDto> books;
 
     public AuthorDto(Author author) {
         super(author);
+        if (author.getBooks() != null) {
+            this.books = author.getBooks().stream().map(BookBaseDto::new).toList();
+        }
+    }
+
+    @Override
+    public void populateFromEntity(Author author) {
+        super.populateFromEntity(author);
         if (author.getBooks() != null) {
             this.books = author.getBooks().stream().map(BookBaseDto::new).toList();
         }

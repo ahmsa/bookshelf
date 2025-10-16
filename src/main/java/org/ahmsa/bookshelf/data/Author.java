@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Author {
+public class Author implements IEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;

@@ -1,26 +1,22 @@
 package org.ahmsa.bookshelf.controller;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
+import jakarta.ws.rs.*;
+import org.ahmsa.bookshelf.data.Author;
 import org.ahmsa.bookshelf.data.AuthorDto;
 import org.ahmsa.bookshelf.service.AuthorService;
+import org.ahmsa.bookshelf.service.IService;
+
+import java.util.List;
 
 @Path("/authors")
-public class AuthorController {
+public class AuthorController extends BaseController<Author, AuthorDto> {
     @Inject
     AuthorService authorService;
 
-    @POST
-    @Path("/save")
-    public AuthorDto saveAuthor(AuthorDto authorDto) {
-        return this.authorService.save(authorDto);
-    }
-
-    @GET
-    public java.util.List<AuthorDto> getAllAuthors() {
-        return this.authorService.findAll();
+    @Override
+    public IService getServiceClass() {
+        return this.authorService;
     }
 
     @GET
