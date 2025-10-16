@@ -11,31 +11,10 @@ collection:
     meta:
       id: req_b5bf5832a04f44f08ae2de5fc3e0171b
       created: 1760473391385
-      modified: 1760631860577
+      modified: 1760636333516
       isPrivate: false
       description: ""
       sortKey: -1760473391385
-    method: GET
-    headers:
-      - name: User-Agent
-        value: insomnia/11.6.1
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
-  - url: localhost:8080/books
-    name: Get All Books
-    meta:
-      id: req_a49af8582c1d448e9ca3a009f4a449bc
-      created: 1760475278401
-      modified: 1760475293363
-      isPrivate: false
-      description: ""
-      sortKey: -1760475278401
     method: GET
     headers:
       - name: User-Agent
@@ -53,7 +32,7 @@ collection:
     meta:
       id: req_1611e5b318b34a68b544a13862262544
       created: 1760475340891
-      modified: 1760634394187
+      modified: 1760636305908
       isPrivate: false
       description: ""
       sortKey: -1760475340891
@@ -112,10 +91,10 @@ collection:
     meta:
       id: req_912bf185210c42e78508943e5831fd98
       created: 1760626440647
-      modified: 1760631839542
+      modified: 1760647676133
       isPrivate: false
       description: ""
-      sortKey: -1760475309646
+      sortKey: -1760555486854.5
     method: POST
     body:
       mimeType: application/json
@@ -155,7 +134,7 @@ collection:
     meta:
       id: req_b4e172dc5269448891fc8c0f4ecea2af
       created: 1760626451711
-      modified: 1760626561545
+      modified: 1760636318754
       isPrivate: false
       description: ""
       sortKey: -1760474334893
@@ -176,17 +155,17 @@ collection:
     meta:
       id: req_7a0c054773664a2d8d9f71ec94b4d8a6
       created: 1760628448188
-      modified: 1760631847058
+      modified: 1760636383558
       isPrivate: false
       description: ""
-      sortKey: -1760475294023.5
+      sortKey: -1760515413872.75
     method: POST
     body:
       mimeType: application/json
       text: >-
         
         {
-        	"name": "Programming",
+        	"name": "Programming ~ oops misspelled",
         	"parentGenre": {
         		"id": "{% response 'body', 'req_b4e172dc5269448891fc8c0f4ecea2af', 'b64::JFswXS5pZA==::46b', 'always', 60 %}"
         	},
@@ -225,7 +204,7 @@ collection:
     meta:
       id: req_dffc5e1410ee48bc97e82091f422449b
       created: 1760633662498
-      modified: 1760633665895
+      modified: 1760636323967
       isPrivate: false
       description: ""
       sortKey: -1760473863139
@@ -246,10 +225,10 @@ collection:
     meta:
       id: req_9ba1a43fa67047d3bac6676dc50fb0fe
       created: 1760633692413
-      modified: 1760634193201
+      modified: 1760636299597
       isPrivate: false
       description: ""
-      sortKey: -1760475325268.5
+      sortKey: -1760495377381.875
     method: POST
     body:
       mimeType: application/json
@@ -278,6 +257,188 @@ collection:
         value: identity
         description: ""
         disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/books/delete?id={% response 'body',
+      'req_12c7a2350de44577bfc507cb420f5ab5', 'b64::JFswXS5pZA==::46b',
+      'always', 60 %}
+    name: Delete Book
+    meta:
+      id: req_5159349b5c2440d98c954148e13c2b75
+      created: 1760635632818
+      modified: 1760648470717
+      isPrivate: false
+      description: ""
+      sortKey: -1760473391285
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/books
+    name: Get All Books
+    meta:
+      id: req_12c7a2350de44577bfc507cb420f5ab5
+      created: 1760635845370
+      modified: 1760636314843
+      isPrivate: false
+      description: ""
+      sortKey: -1760474806647
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/authors/delete?id={% response 'body',
+      'req_dffc5e1410ee48bc97e82091f422449b', 'b64::JFswXS5pZA==::46b',
+      'always', 60 %}
+    name: Delete Author
+    meta:
+      id: req_3c0c94ea676b4048a9c9d5c63cc3fc83
+      created: 1760636121515
+      modified: 1760648631702
+      isPrivate: false
+      description: ""
+      sortKey: -1760473391335
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/genres/save
+    name: Rename Second Genre
+    meta:
+      id: req_906b7f5a00f1487fb1a004e690b841ef
+      created: 1760636359747
+      modified: 1760639779448
+      isPrivate: false
+      description: ""
+      sortKey: -1760505395627.3125
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"id": "{% response 'body', 'req_b4e172dc5269448891fc8c0f4ecea2af', 'b64::JFsxXS5pZA==::46b', 'always', 60 %}",
+        	"name": "Programming",
+        	"parentGenre": {
+        		"id": "{% response 'body', 'req_b4e172dc5269448891fc8c0f4ecea2af', 'b64::JFswXS5pZA==::46b', 'always', 60 %}"
+        	}
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a5677fb8d90c4aa0ad7771616761b15a
+        disabled: false
+      - name: User-Agent
+        value: insomnia/11.6.1
+        id: pair_0000e52cec9b498fb6916437e91503c3
+        disabled: true
+      - id: pair_3b7137bf5dfc481fa92148efc25ca397
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+      - id: pair_6fcf42a2187b40578f26c7db3a26c93b
+        name: Content-Encoding
+        value: identity
+        description: ""
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/authors/save
+    name: Rename New Author
+    meta:
+      id: req_757ce25f0e4f4604b3f26f82f008486b
+      created: 1760648287504
+      modified: 1760648406945
+      isPrivate: false
+      description: ""
+      sortKey: -1760485359136.4375
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"id": "{% response 'body', 'req_dffc5e1410ee48bc97e82091f422449b', 'b64::JFswXS5pZA==::46b', 'always', 60 %}",
+          "name" : "Harlan Coben",
+          "nationality" : "American"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_a5677fb8d90c4aa0ad7771616761b15a
+        disabled: false
+      - name: User-Agent
+        value: insomnia/11.6.1
+        id: pair_0000e52cec9b498fb6916437e91503c3
+        disabled: true
+      - id: pair_3b7137bf5dfc481fa92148efc25ca397
+        name: Accept
+        value: application/json
+        description: ""
+        disabled: false
+      - id: pair_6fcf42a2187b40578f26c7db3a26c93b
+        name: Content-Encoding
+        value: identity
+        description: ""
+        disabled: true
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: localhost:8080/genres/delete?id={% response 'body',
+      'req_b4e172dc5269448891fc8c0f4ecea2af', 'b64::JFswXS5pZA==::46b',
+      'always', 60 %}
+    name: Delete Genre
+    meta:
+      id: req_7fffb719372b4811b50cc63b34be3a14
+      created: 1760648693186
+      modified: 1760648761288
+      isPrivate: false
+      description: ""
+      sortKey: -1759393653356.5
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
     settings:
       renderRequestBody: true
       encodeUrl: true
