@@ -4,11 +4,29 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
-public class AuthorDto extends AuthorBaseDto {
-    AuthorDto(Author author) {
+public class AuthorDto extends AuthorBaseDto implements  IDto {
+    List<BookBaseDto> books;
+
+    public AuthorDto(Author author) {
         super(author);
+        if (author.getBooks() != null) {
+            this.books = author.getBooks().stream().map(BookBaseDto::new).toList();
+        }
+    }
+
+    @Override
+    public Author getEntity() {
+        Author author = super.getEntity();
+
+        if(this.getBooks() != null) {
+            author.setBooks(this.getBooks().stream().map(BookBaseDto::getEntity).toList());
+        }
+
+        return author;
     }
 }

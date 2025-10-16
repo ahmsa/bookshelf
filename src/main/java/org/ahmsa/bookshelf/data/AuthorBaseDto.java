@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AuthorBaseDto {
+public class AuthorBaseDto implements IDto {
     private String id;
     private String name;
     private String nationality;
@@ -16,5 +16,14 @@ public class AuthorBaseDto {
         this.id = author.getId();
         this.name = author.getName();
         this.nationality = author.getNationality();
+    }
+
+    @Override
+    public Author getEntity() {
+        Author author = new Author();
+        author.setId(this.id);
+        author.setName(this.name);
+        author.setNationality(this.nationality);
+        return author;
     }
 }

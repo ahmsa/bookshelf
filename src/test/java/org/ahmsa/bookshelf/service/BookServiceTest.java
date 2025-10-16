@@ -1,6 +1,7 @@
 package org.ahmsa.bookshelf.service;
 
 import org.ahmsa.bookshelf.data.Book;
+import org.ahmsa.bookshelf.data.BookDto;
 import org.ahmsa.bookshelf.repository.BookRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

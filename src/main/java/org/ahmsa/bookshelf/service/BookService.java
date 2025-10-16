@@ -12,7 +12,7 @@ import java.util.List;
 @ApplicationScoped
 public class BookService {
     @Inject
-    private BookRepository bookRepository;
+    BookRepository bookRepository;
 
     public List<BookDto> getByTitle(String title) {
         List<Book> byTitle = bookRepository.findByTitle(title);
@@ -30,5 +30,10 @@ public class BookService {
         }
 
         return all.stream().map(BookDto::new).toList();
+    }
+
+    public BookDto saveBook(BookBaseDto book) {
+        Book savedBook = bookRepository.save(book.getEntity());
+        return new BookDto(savedBook);
     }
 }

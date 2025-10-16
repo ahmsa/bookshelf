@@ -7,16 +7,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class GenreBaseDto {
+public class GenreBaseDto implements IDto {
     private String id;
     private String name;
-    private GenreBaseDto parentGenre;
 
     public GenreBaseDto(Genre genre) {
         this.id = genre.getId();
         this.name = genre.getName();
-        if (genre.getParentGenre() != null) {
-            this.parentGenre = new GenreBaseDto(genre.getParentGenre());
-        }
+    }
+
+    public Genre getEntity() {
+        Genre genre = new Genre();
+        genre.setId(this.id);
+        genre.setName(this.name);
+        return genre;
     }
 }

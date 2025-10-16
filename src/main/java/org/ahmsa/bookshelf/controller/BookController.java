@@ -4,7 +4,6 @@ package org.ahmsa.bookshelf.controller;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import org.ahmsa.bookshelf.data.BookBaseDto;
 import org.ahmsa.bookshelf.data.BookDto;
 import org.ahmsa.bookshelf.service.BookService;
 
@@ -30,11 +29,10 @@ public class BookController {
     }
 
     @POST
-    @Path("/addBook")
+    @Path("/save")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public BookDto addBook(BookDto bookDto) {
-        // This method would call a service to add a new book
-        return bookDto; // Placeholder return
+    public BookDto save(BookDto bookDto) {
+        return this.bookService.saveBook(bookDto);
     }
 }
