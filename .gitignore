@@ -27,3 +27,5 @@ TestResults.xml
 /target/
 target/*
 target/
+
+*.log
