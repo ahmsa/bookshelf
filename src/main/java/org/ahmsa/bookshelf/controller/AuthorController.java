@@ -21,7 +21,7 @@ public class AuthorController extends BaseController<Author, AuthorDto> {
 
     @GET
     @Path("/findByName")
-    public java.util.List<AuthorDto> findByName(String firstName) {
-        return this.authorService.findByName(firstName);
+    public java.util.List<AuthorDto> findByName(@QueryParam("name") String authorName) {
+        return this.authorService.findByName(authorName);
     }
 }
