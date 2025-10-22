@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class BookBaseDto implements IDto<Book> {
-    private String id;
+    private Long id;
     private String title;
     private Integer publicationYear;
     private Double edition;

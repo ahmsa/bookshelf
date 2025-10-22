@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Author implements IEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String name;
     private String country;

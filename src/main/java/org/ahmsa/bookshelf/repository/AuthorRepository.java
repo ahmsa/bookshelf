@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface AuthorRepository extends CrudRepository<Author, String> {
+public interface AuthorRepository extends CrudRepository<Author, Long> {
     public List<Author> findAll();
     public List<Author> findByName(String name);
 }

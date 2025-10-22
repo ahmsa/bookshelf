@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Book implements IEntity {
     @Id
-    @GeneratedValue(generator = "uuid")
-    private String id;
+    @GeneratedValue(strategy =  GenerationType.AUTO)
+    private Long id;
     private String title;
     private Integer publicationYear;
     private Double edition;

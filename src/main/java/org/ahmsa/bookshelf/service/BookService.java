@@ -16,7 +16,7 @@ public class BookService implements IService<Book, BookDto> {
     BookRepository bookRepository;
 
     @Override
-    public CrudRepository<Book, String> getCrudRepository() {
+    public CrudRepository<Book, Long> getCrudRepository() {
         return this.bookRepository;
     }
 

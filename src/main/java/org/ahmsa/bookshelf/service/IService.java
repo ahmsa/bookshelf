@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface IService<E extends IEntity, D extends IDto<E>> {
-    CrudRepository<E, String> getCrudRepository();
+    CrudRepository<E, Long> getCrudRepository();
 
     public D getDtoInstance();
 
@@ -20,8 +20,8 @@ public interface IService<E extends IEntity, D extends IDto<E>> {
         return (List<D>) getDtoInstance().populateFromEntites(allItr);
     }
 
-    public default void delete(String genreId) {
-        getCrudRepository().deleteById(genreId);
+    public default void delete(Long id) {
+        getCrudRepository().deleteById(id);
     }
 
     public default void delete(D dto) {

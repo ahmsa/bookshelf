@@ -16,7 +16,7 @@ public class AuthorService implements IService<Author, AuthorDto> {
     AuthorRepository authorRepository;
 
     @Override
-    public CrudRepository<Author, String> getCrudRepository() {
+    public CrudRepository<Author, Long> getCrudRepository() {
         return this.authorRepository;
     }
 

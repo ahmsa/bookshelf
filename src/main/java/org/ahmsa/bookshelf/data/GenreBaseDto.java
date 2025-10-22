@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class GenreBaseDto implements IDto<Genre> {
-    private String id;
+    private Long id;
     private String name;
 
     public GenreBaseDto(Genre genre) {

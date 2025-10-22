@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class AuthorBaseDto implements IDto<Author> {
-    private String id;
+    private Long id;
     private String name;
     private String country;
 
