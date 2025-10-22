@@ -12,7 +12,7 @@ class AuthorDtoTest {
         AuthorDto authorDto = new AuthorDto();
         authorDto.setId("1");
         authorDto.setName("John Doe");
-        authorDto.setNationality("American");
+        authorDto.setCountry("American");
 
         String json = EntityMapper.objectToJsonString(authorDto);
 
