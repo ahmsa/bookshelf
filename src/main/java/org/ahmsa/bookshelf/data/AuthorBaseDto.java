@@ -10,19 +10,19 @@ import lombok.Setter;
 public class AuthorBaseDto implements IDto<Author> {
     private String id;
     private String name;
-    private String nationality;
+    private String country;
 
     public AuthorBaseDto(Author author) {
         this.id = author.getId();
         this.name = author.getName();
-        this.nationality = author.getNationality();
+        this.country = author.getCountry();
     }
 
     @Override
     public void populateFromEntity(Author author) {
         this.id = author.getId();
         this.name = author.getName();
-        this.nationality = author.getNationality();
+        this.country = author.getCountry();
     }
 
     @Override
@@ -30,14 +30,14 @@ public class AuthorBaseDto implements IDto<Author> {
         Author author = new Author();
         author.setId(this.id);
         author.setName(this.name);
-        author.setNationality(this.nationality);
+        author.setCountry(this.country);
         return author;
     }
 
     @Override
     public Author updateEntity(Author author) {
         author.setName(this.name);
-        author.setNationality(this.nationality);
+        author.setCountry(this.country);
         return author;
     }
 }

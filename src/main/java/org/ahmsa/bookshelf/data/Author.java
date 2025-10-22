@@ -17,7 +17,7 @@ public class Author implements IEntity {
     private String id;
 
     private String name;
-    private String nationality;
+    private String country;
 
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Book> books;
