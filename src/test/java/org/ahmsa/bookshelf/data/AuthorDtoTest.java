@@ -10,7 +10,7 @@ class AuthorDtoTest {
     @Test
     void getAuthorJson() throws JsonProcessingException {
         AuthorDto authorDto = new AuthorDto();
-        authorDto.setId("1");
+        authorDto.setId(1L);
         authorDto.setName("John Doe");
         authorDto.setCountry("American");
 

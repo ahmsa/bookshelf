@@ -27,7 +27,7 @@ public abstract class BaseController<I extends IEntity, D extends IDto<I>> {
 
     @DELETE
     @Path("/delete")
-    public void delete(@QueryParam("id") String id) {
+    public void delete(@QueryParam("id") long id) {
         this.getServiceClass().delete(id);
     }
 }
