@@ -1,8 +1,6 @@
 package org.ahmsa.bookshelf.data;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,14 +11,21 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Book {
+public class Book implements IEntity {
     @Id
-    @GeneratedValue(generator = "uuid")
-    private String id;
+    @GeneratedValue(strategy =  GenerationType.AUTO)
+    private Long id;
     private String title;
     private Integer publicationYear;
     private Double edition;
     private Double price;
-//    private List<Genre> genres;
-//    private List<Author> authors;
+    private String bookLanguage;
+    private String publisher;
+    private String isbn;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Genre> genres;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<Author> authors;
 }
