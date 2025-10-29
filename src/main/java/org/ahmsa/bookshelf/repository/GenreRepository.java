@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface GenreRepository extends CrudRepository<Genre, Long> {
     public List<Genre> findAll();
+
+    List<Genre> findByParentGenreId(Long id);
 }
