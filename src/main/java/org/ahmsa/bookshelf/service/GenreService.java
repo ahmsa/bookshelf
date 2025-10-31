@@ -3,15 +3,11 @@ package org.ahmsa.bookshelf.service;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.transaction.Transactional;
 import org.ahmsa.bookshelf.data.Genre;
 import org.ahmsa.bookshelf.data.GenreDto;
 import org.ahmsa.bookshelf.repository.GenreRepository;
-import org.springframework.data.repository.CrudRepository;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Optional;
 
 @ApplicationScoped
 public class GenreService implements IService<Genre, GenreDto> {
@@ -26,5 +22,19 @@ public class GenreService implements IService<Genre, GenreDto> {
     @Override
     public GenreDto getDtoInstance() {
         return new  GenreDto();
+    }
+
+    @Override
+    public void delete(Long id) {
+        this.disassociateChildGenres(id);
+        IService.super.delete(id);
+    }
+
+    private void disassociateChildGenres(Long id) {
+        List<Genre> childGenres = genreRepository.findByParentGenreId(id);
+        for (Genre childGenre : childGenres) {
+            disassociateChildGenres(childGenre.getId());
+            genreRepository.deleteById(childGenre.getId());
+        }
     }
 }
