@@ -15,6 +15,10 @@ public class BookService implements IService<Book, BookDto> {
     @Inject
     BookRepository bookRepository;
 
+    public BookService(){
+
+    }
+
     @Override
     public CrudRepository<Book, Long> getCrudRepository() {
         return this.bookRepository;
