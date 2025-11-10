@@ -12,18 +12,6 @@ import java.util.List;
 public class AuthorDto extends AuthorBaseDto implements  IDto<Author> {
     List<BookBaseDto> books;
 
-    public AuthorDto() {
-        super();
-    }
-
-    public List<BookBaseDto> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<BookBaseDto> books) {
-        this.books = books;
-    }
-
     public AuthorDto(Author author) {
         super(author);
         if (author.getBooks() != null) {

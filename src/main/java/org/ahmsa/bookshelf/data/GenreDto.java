@@ -16,10 +16,6 @@ public class GenreDto extends GenreBaseDto implements IDto<Genre> {
     List<GenreBaseDto> subGenres;
     List<BookBaseDto> books;
 
-    public GenreDto(){
-        super();
-    }
-
     public GenreDto(Genre genre) {
         super(genre);
 
@@ -29,30 +25,6 @@ public class GenreDto extends GenreBaseDto implements IDto<Genre> {
 
         this.subGenres = genre.getSubGenres() != null ? genre.getSubGenres().stream().map(GenreBaseDto::new).toList() : null;
         this.books = genre.getBooks() != null ? genre.getBooks().stream().map(BookBaseDto::new).toList() : null;
-    }
-
-    public GenreBaseDto getParentGenre() {
-        return parentGenre;
-    }
-
-    public void setParentGenre(GenreBaseDto parentGenre) {
-        this.parentGenre = parentGenre;
-    }
-
-    public List<GenreBaseDto> getSubGenres() {
-        return subGenres;
-    }
-
-    public void setSubGenres(List<GenreBaseDto> subGenres) {
-        this.subGenres = subGenres;
-    }
-
-    public List<BookBaseDto> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<BookBaseDto> books) {
-        this.books = books;
     }
 
     @Override

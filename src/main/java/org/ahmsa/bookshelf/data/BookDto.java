@@ -13,30 +13,10 @@ public class BookDto extends BookBaseDto implements IDto<Book> {
     private List<GenreBaseDto> genres;
     private List<AuthorBaseDto> authors;
 
-    public BookDto() {
-        super();
-    }
-
     public BookDto(Book book) {
         super(book);
         this.genres = book.getGenres() != null? book.getGenres().stream().map(GenreBaseDto::new).toList(): null;
         this.authors = book.getAuthors() != null? book.getAuthors().stream().map(AuthorBaseDto::new).toList(): null;
-    }
-
-    public List<GenreBaseDto> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<GenreBaseDto> genres) {
-        this.genres = genres;
-    }
-
-    public List<AuthorBaseDto> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<AuthorBaseDto> authors) {
-        this.authors = authors;
     }
 
     @Override
