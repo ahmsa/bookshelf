@@ -53,4 +53,11 @@ public interface IService<E extends IEntity, D extends IDto<E>> {
         dto.populateFromEntity(existingEntity);
         return dto;
     }
+
+    public default D getById(Long id) {
+        E entity = getCrudRepository().findById(id).orElseThrow(() -> new RuntimeException("Entity not found"));
+        D dto = getDtoInstance();
+        dto.populateFromEntity(entity);
+        return dto;
+    }
 }
