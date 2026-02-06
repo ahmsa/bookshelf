@@ -1,13 +1,10 @@
 package org.ahmsa.bookshelf.service;
 
-import jakarta.inject.Inject;
-import org.ahmsa.bookshelf.data.AuthorDto;
+import java.util.List;
+
 import org.ahmsa.bookshelf.data.IDto;
 import org.ahmsa.bookshelf.data.IEntity;
-import org.ahmsa.bookshelf.repository.BaseRepository;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
 
 public interface IService<E extends IEntity, D extends IDto<E>> {
     CrudRepository<E, Long> getCrudRepository();
